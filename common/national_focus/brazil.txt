@@ -2,14 +2,14 @@
 
 focus_tree = {
 
-	id = brazilian_focus
+	id = gaucho_focus
 	
 	country = {
 		factor = 0
 		
 		modifier = {
 			add = 10
-			tag = BRA
+			tag = RRS
 		}
 	}
 	
@@ -20,22 +20,24 @@ focus_tree = {
 ###---> Start of Tree/Politcal <><> <><> <><>
 
 	focus = {
-		id = bra_a_voz_do_brasil
-		icon = GFX_focus_bra_voice_of_brasil
+		id = rrs_restoring_the_farrapos
+		icon = GFX_goal_rrs_conquer_bra
 		x = 3
-		y = 0
+		y = 1
 		cost = 5
+		
 		ai_will_do = {
 			factor = 10
 		}
+
 		completion_reward = {
-			add_political_power = 25
+			add_political_power = 75
 			country_event = { days = 1 id = bra.10 }
 		hidden_effect = {
-		set_party_name = { ideology = fascism long_name = "Ação Integralista Brasileira" name = "AIB" }
-		set_party_name = { ideology = democratic long_name = "União Democrática Nacional" name = "UDN" }
-		set_party_name = { ideology = communism long_name = "Aliança Nacional Libertadora" name = "ANL" }
-		set_party_name = { ideology = neutrality long_name = "Aliança Liberal" name = "AL" }
+		set_party_name = { ideology = fascism long_name = "Farrapos" name = "FAR" }
+		set_party_name = { ideology = democratic long_name = "Chimangos" name = "UDN" }
+		set_party_name = { ideology = communism long_name = "Movimento Operário Gaúcho" name = "MOG" }
+		set_party_name = { ideology = neutrality long_name = "Maragatos" name = "MA" }
 			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -43,16 +45,19 @@ focus_tree = {
 	focus = {
 		id = bra_national_security_law
 		icon = GFX_focus_bra_national_security_law
-		prerequisite = { focus = bra_a_voz_do_brasil }
 		x = 0
 		y = 1
-		relative_position_id = bra_a_voz_do_brasil
+		relative_position_id = rrs_restoring_the_farrapos
+
 		cost = 5
-		ai_will_do = {
-			factor = 10
-		}
+		prerequisite = { focus = bra_a_voz_do_brasil }
+
 		completion_reward = {
 			add_ideas = bra_national_security_law_idea
+		}
+
+		ai_will_do = {
+			factor = 10
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
