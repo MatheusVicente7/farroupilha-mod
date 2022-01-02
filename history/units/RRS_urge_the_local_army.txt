@@ -1,0 +1,84 @@
+﻿division_template = {
+	name = "Divisão de Infantaria 3"		# Infantry Division
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+
+	}
+	support = {
+  	      engineer = { x = 0 y = 0 }
+ 	}
+}
+division_template = {
+	name = "Brigada Militar"		# Infantry Division
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+
+	}
+	support = {
+  	      engineer = { x = 0 y = 0 }
+ 	}
+}
+division_template = {
+	name = "Cavalaria Militar"  		# Cavalry Division
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+	}
+}
+
+
+units = {
+	##### Urge the population #####
+	division= {	
+		name = "Divisão de Infantaria de Caxias do Sul"
+		location = 1542 # Caxias do Sul
+		division_template = "Divisão de Infantaria 3"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+
+	}
+	division= {	
+		name = "Divisão de Infantaria de Santa Maria"
+		location = 7594 # Santa Maria
+		division_template = "Divisão de Infantaria 3"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+
+	}
+	division= {	
+		name = "Brigada Militar do Rio Grande do Sul"
+		location = 10447 # Porto Alegre
+		division_template = "Brigada Militar"
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+
+	division= {	
+		name = "Cavalaria da Brigada Militar do Rio Grande do Sul"
+		location = 10447 # Porto Alegre
+		division_template = "Divisão de Cavalaria 3"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+	}
+}
