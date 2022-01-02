@@ -22,8 +22,8 @@ focus_tree = {
 	focus = {
 		id = rrs_restoring_the_farrapos
 		icon = GFX_goal_rrs_conquer_bra
-		x = 3
-		y = 1
+		x = 0
+		y = 0
 		cost = 5
 		
 		ai_will_do = {
@@ -42,18 +42,37 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
+
+
+	##Levante da população
 	focus = {
-		id = bra_national_security_law
+		id = rrs_urge_the_population
 		icon = GFX_focus_bra_national_security_law
 		x = 0
 		y = 1
 		relative_position_id = rrs_restoring_the_farrapos
 
 		cost = 5
-		prerequisite = { focus = bra_a_voz_do_brasil }
+		prerequisite = { focus = rrs_restoring_the_farrapos }
 
 		completion_reward = {
-			add_ideas = bra_national_security_law_idea
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.4
+				uses = 1
+				category = land_doctrine
+			}
+			if = {
+				limit = {
+					has_war = no
+				}
+				custom_effect_tooltip =  bra_tropas_1932_tooltip
+				hidden_effect = {
+					load_oob = RRS_urge_the_population
+				}				
+			}
+
 		}
 
 		ai_will_do = {
@@ -61,6 +80,103 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
+	##Levante da população Catarinense
+	focus = {
+		id = rrs_urge_the_catarinense_population
+		icon = GFX_focus_bra_national_security_law
+		x = 2
+		y = 1
+		relative_position_id = rrs_restoring_the_farrapos
+
+		cost = 5
+		prerequisite = { focus = rrs_restoring_the_farrapos }
+
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.4
+				uses = 1
+				category = land_doctrine
+			}
+			if = {
+				limit = {
+					has_war = no
+				}
+				custom_effect_tooltip =  bra_tropas_1932_tooltip
+				hidden_effect = {
+					load_oob = RRS_urge_the_population
+				}				
+			}
+
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+
+	##Levante do exercito local
+	focus = {
+		id = rrs_urge_the_local_army
+		icon = GFX_focus_bra_national_security_law
+		x = 0
+		y = 1
+		relative_position_id = rrs_urge_the_population
+
+		cost = 5
+		prerequisite = { focus = rrs_urge_the_population }
+
+		completion_reward = {
+			white_peace = BRA
+			if = {
+				limit = {
+					has_war = no
+				}
+				hidden_effect = {
+					load_oob = RRS_urge_the_local_army
+				}				
+			}
+
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+
+	##Armistício com o Brasil
+	focus = {
+		id = rrs_armistice_with_bra
+		icon = GFX_focus_bra_national_security_law
+		x = 0
+		y = 1
+		relative_position_id = rrs_urge_the_local_army
+
+		cost = 5
+		prerequisite = { focus = rrs_urge_the_local_army}
+		available = {
+			has_war_with = bra
+		}
+		available = {
+			has_full_control_of_state = 503
+		}
+		completion_reward = {
+			white_peace = bra 
+			transfer_state = 503
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+
 	focus = {
 		id = bra_modernizacao_armadas
 		icon = GFX_goal_BRA_coa_army
@@ -101,7 +217,7 @@ focus_tree = {
 		icon = GFX_focus_generic_treaty
 		prerequisite = { focus = bra_national_security_law }
 		x = 0
-		y = 2
+		y = 7
 		relative_position_id = bra_a_voz_do_brasil
 		cost = 10
 		ai_will_do = {
@@ -738,7 +854,7 @@ focus_tree = {
 		prerequisite = { focus = bra_a_voz_do_brasil }
 		relative_position_id = bra_a_voz_do_brasil
 		x = -7
-		y = 1
+		y = 7
 		cost = 5
 		
 		completion_reward = {
@@ -758,7 +874,7 @@ focus_tree = {
 		prerequisite = { focus = bra_a_voz_do_brasil }
 		relative_position_id = bra_a_voz_do_brasil
 		x = -5
-		y = 1
+		y = 7
 		cost = 5
 		
 		completion_reward = {
@@ -1106,7 +1222,7 @@ focus = {
 				}
 				custom_effect_tooltip =  bra_tropas_1932_tooltip
 				hidden_effect = {
-					load_oob = BRA_cohen
+					load_oob = RRS_urge_the_population
 				}				
 			}
 
@@ -1465,7 +1581,7 @@ focus = {
 		prerequisite = { focus = bra_a_voz_do_brasil }
 		relative_position_id = bra_a_voz_do_brasil
 		x = -10
-		y = 1
+		y = 7
 		cost = 10
 		completion_reward = {
 			add_ideas = { bra_eficiencia_1 }
