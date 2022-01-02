@@ -1,5 +1,5 @@
 #reload countrycolors
-RRS = {
+RRG = {
 	color = rgb { 76  45  63 }
 	color_ui = rgb { 76  45  63 }
 }
