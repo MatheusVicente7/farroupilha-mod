@@ -203,8 +203,11 @@ focus_tree = {
 
 
 
+		## !!!! Communist Branch !!!
 
-	focus = {
+
+		#
+		focus = {
 		id = bra_populism
 		icon = GFX_focus_bra_populism
 		prerequisite = { focus = rrg_organize the house }
