@@ -9,7 +9,7 @@ focus_tree = {
 		
 		modifier = {
 			add = 10
-			tag = RRS
+			tag = RRG
 		}
 	}
 	
@@ -20,7 +20,7 @@ focus_tree = {
 ###---> Start of Tree/Politcal <><> <><> <><>
 
 	focus = {
-		id = rrs_restoring_the_farrapos
+		id = rrg_restoring_the_farrapos
 		icon = GFX_goal_rrs_conquer_bra
 		x = 0
 		y = 0
@@ -46,14 +46,14 @@ focus_tree = {
 
 	##Levante da população
 	focus = {
-		id = rrs_urge_the_population
+		id = rrg_urge_the_population
 		icon = GFX_focus_bra_national_security_law
 		x = 0
 		y = 1
-		relative_position_id = rrs_restoring_the_farrapos
+		relative_position_id = rrg_restoring_the_farrapos
 
 		cost = 5
-		prerequisite = { focus = rrs_restoring_the_farrapos }
+		prerequisite = { focus = rrg_restoring_the_farrapos }
 
 		completion_reward = {
 			army_experience = 15
@@ -82,14 +82,14 @@ focus_tree = {
 	}
 	##Levante da população Catarinense
 	focus = {
-		id = rrs_urge_the_catarinense_population
+		id = rrg_urge_the_catarinense_population
 		icon = GFX_focus_bra_national_security_law
 		x = 2
 		y = 1
-		relative_position_id = rrs_restoring_the_farrapos
+		relative_position_id = rrg_restoring_the_farrapos
 
 		cost = 5
-		prerequisite = { focus = rrs_restoring_the_farrapos }
+		prerequisite = { focus = rrg_restoring_the_farrapos }
 
 		completion_reward = {
 			army_experience = 15
@@ -120,14 +120,14 @@ focus_tree = {
 
 	##Levante do exercito local
 	focus = {
-		id = rrs_urge_the_local_army
+		id = rrg_urge_the_local_army
 		icon = GFX_focus_bra_national_security_law
 		x = 0
 		y = 1
-		relative_position_id = rrs_urge_the_population
+		relative_position_id = rrg_urge_the_population
 
 		cost = 5
-		prerequisite = { focus = rrs_urge_the_population }
+		prerequisite = { focus = rrg_urge_the_population }
 
 		completion_reward = {
 			white_peace = BRA
@@ -151,18 +151,16 @@ focus_tree = {
 
 	##Armistício com o Brasil
 	focus = {
-		id = rrs_armistice_with_bra
+		id = rrg_armistice_with_bra
 		icon = GFX_focus_bra_national_security_law
 		x = 0
 		y = 1
-		relative_position_id = rrs_urge_the_local_army
+		relative_position_id = rrg_urge_the_local_army
 
 		cost = 5
-		prerequisite = { focus = rrs_urge_the_local_army}
+		prerequisite = { focus = rrg_urge_the_local_army}
 		available = {
 			has_war_with = bra
-		}
-		available = {
 			has_full_control_of_state = 503
 		}
 		completion_reward = {
@@ -176,52 +174,19 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
 
+		## -----Political Branch-----
 
-	focus = {
-		id = bra_modernizacao_armadas
-		icon = GFX_goal_BRA_coa_army
-		prerequisite = { focus = bra_a_voz_do_brasil }
-		x = 9
-		y = 1
-		bypass = {
-		NOT = { has_idea = bra_1930 }
-		}
-		relative_position_id = bra_a_voz_do_brasil
-		cost = 5
-		completion_reward = {
-			if = {
-				limit = {
-					has_idea = bra_1930
-				}
-			swap_ideas = { remove_idea = bra_1930 add_idea = bra_1930_2 }
-			}
-		}
-		search_filters = { FOCUS_FILTER_MILITARY_IMPROVEMENT }
-	}
-	focus = {
-		id = bra_consegnac
-		icon = GFX_focus_generic_combined_arms
-		prerequisite = { focus = bra_modernizacao_armadas }
-		x = 9
-		y = 2
-		relative_position_id = bra_a_voz_do_brasil
-		cost = 5
-		completion_reward = {
-			army_experience = 10
-			add_ideas = bra_consegnac_idea
-		}
-		search_filters = { FOCUS_FILTER_MILITARY_IMPROVEMENT }
-	}
-	focus = {
-		id = bra_polaca
+		##Organize the house/Arrumar a Casa
+		focus = {
+		id = rrg_organize the house
 		icon = GFX_focus_generic_treaty
-		prerequisite = { focus = bra_national_security_law }
+		relative_position_id = rrg_armistice_with_bra
 		x = 0
-		y = 7
-		relative_position_id = bra_a_voz_do_brasil
+		y = 1
 		cost = 10
-		ai_will_do = {
-			factor = 25
+		prerequisite = { focus = rrg_armistice_with_bra }
+		available = {
+			has_war = no
 		}
 
 		completion_reward = {
@@ -229,53 +194,25 @@ focus_tree = {
 			country_event = { days = 1 id = bra.2 }
 			custom_effect_tooltip = bra_aviso_tooltip
 		}
+		ai_will_do = {
+			factor = 25
+		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
-	focus = {
-		id = bra_monarquia_focus
-		icon = GFX_focus_por_reclaim_crown_jewel
-		prerequisite = { focus = bra_polaca }
-		mutually_exclusive = { focus = bra_populism }
-		mutually_exclusive = { focus = bra_federalism }
-		available = {
-			has_government = neutrality
-			has_idea = bra_instabilidade
-		}
-		x = 0
-		y = 1
-		relative_position_id = bra_polaca
-		cost = 14.30
-		ai_will_do = {
-			factor = 50
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-			modifier = {
-				URG = {
-					is_ai = no
-				}
-				factor = 0
-			}
-		}
-		completion_reward = {
-			add_named_threat = { threat = 0.5 name = bra_monarquia_focus_t }
-			remove_ideas = bra_instabilidade
-			hidden_effect = {
-				country_event = { days = 1 id = bra.5 }
-			}
-			custom_effect_tooltip = bra_monarquia_tooltip
-		}
-	}
+
+
+
+
+
 	focus = {
 		id = bra_populism
 		icon = GFX_focus_bra_populism
-		prerequisite = { focus = bra_polaca }
+		prerequisite = { focus = rrg_organize the house }
 		mutually_exclusive = { focus = bra_federalism }
 		mutually_exclusive = { focus = bra_monarquia_focus }
 		x = -2
 		y = 1
-		relative_position_id = bra_polaca
+		relative_position_id = rrg_organize the house
 		cost = 10
 		ai_will_do = {
 			factor = 50
@@ -360,12 +297,12 @@ focus_tree = {
 	focus = {
 		id = bra_federalism
 		icon = GFX_focus_bra_federalism
-		prerequisite = { focus = bra_polaca }
+		prerequisite = { focus = rrg_organize the house }
 		mutually_exclusive = { focus = bra_populism }
 		mutually_exclusive = { focus = bra_monarquia_focus }
 		x = 2
 		y = 1
-		relative_position_id = bra_polaca
+		relative_position_id = rrg_organize the house
 		ai_will_do = {
 			factor = 50
 			modifier = {
@@ -766,7 +703,79 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
+		focus = {
+		id = bra_monarquia_focus
+		icon = GFX_focus_por_reclaim_crown_jewel
+		prerequisite = { focus = rrg_organize the house }
+		mutually_exclusive = { focus = bra_populism }
+		mutually_exclusive = { focus = bra_federalism }
+		available = {
+			has_government = neutrality
+			has_idea = bra_instabilidade
+		}
+		x = 0
+		y = 1
+		relative_position_id = rrg_organize the house
+		cost = 14.30
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+			modifier = {
+				URG = {
+					is_ai = no
+				}
+				factor = 0
+			}
+		}
+		completion_reward = {
+			add_named_threat = { threat = 0.5 name = bra_monarquia_focus_t }
+			remove_ideas = bra_instabilidade
+			hidden_effect = {
+				country_event = { days = 1 id = bra.5 }
+			}
+			custom_effect_tooltip = bra_monarquia_tooltip
+		}
+	}
 
+	##Military Branch
+	focus = {
+		id = bra_modernizacao_armadas
+		icon = GFX_goal_BRA_coa_army
+		prerequisite = { focus = bra_a_voz_do_brasil }
+		x = 9
+		y = 1
+		bypass = {
+		NOT = { has_idea = bra_1930 }
+		}
+		relative_position_id = bra_a_voz_do_brasil
+		cost = 5
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = bra_1930
+				}
+			swap_ideas = { remove_idea = bra_1930 add_idea = bra_1930_2 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_MILITARY_IMPROVEMENT }
+	}
+	focus = {
+		id = bra_consegnac
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = bra_modernizacao_armadas }
+		x = 9
+		y = 2
+		relative_position_id = bra_a_voz_do_brasil
+		cost = 5
+		completion_reward = {
+			army_experience = 10
+			add_ideas = bra_consegnac_idea
+		}
+		search_filters = { FOCUS_FILTER_MILITARY_IMPROVEMENT }
+	}
 	focus = {
 		id = bra_tiro_de_guerra
 		icon = GFX_goal_generic_democratic_army
